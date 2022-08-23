@@ -96,10 +96,12 @@ class Renderer extends AbstractRenderer
      */
     protected function getInstructions($params, $attributes)
     {
+        $id = ucfirst($this->chart->getType());
+        if($id == 'Xy') $id = "XY";
         $instructions = sprintf(
             '%s = new AmCharts.Am%sChart();',
             $this->chart->getId(),
-            ucfirst($this->chart->getType())
+            $id
         ) . "\n";
         $instructions .= $this->formatVarProperties($this->chart->getId(), $params);
 

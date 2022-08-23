@@ -8,9 +8,6 @@ AmChartsPHP provide an API to create easily different charts in your application
 AmCharts web site : [http://www.amcharts.com](http://www.amcharts.com)
 AmCharts examples : [http://www.amcharts.com/javascript-charts](http://www.amcharts.com/javascript-charts)
 
-[![Build Status](https://secure.travis-ci.org/mobile215/AmChartsPHP.png?branch=master)](http://travis-ci.org/mobile215/AmChartsPHP)
-[![Coverage Status](https://coveralls.io/repos/mobile215/AmChartsPHP/badge.png?branch=master)](https://coveralls.io/r/mobile215/AmChartsPHP)
-
 Requirements
 ------------
 
@@ -19,21 +16,7 @@ AmChartsPHP works with PHP 5.3 or later.
 Installation via Composer
 -----------------------
 
-Create a `composer.json` file in your project root and use it to define simply your dependencies:
-
-	{
-        "require": {
-        	"mobile215/amcharts-php": "1.*"
-    	}
-	}
-
-Then install Composer in your project (or [download the composer.phar][1] directly):
-
-    curl -s http://getcomposer.org/installer | php
-
-And finally ask Composer to install the dependencies:
-
-    php composer.phar install
+    composer require mobile215/amcharts
 
 Usage
 -----
@@ -44,13 +27,15 @@ Usage
 <?php
 $manager = \AmCharts\Manager::getInstance();
 $manager->setAmChartsPath('./amcharts.js');
+$manager->setJsIncluded(true);
+$manager->setLoadJQuery(true);
 ```
 
 ### Create basic pie chart
 
 ```php
 <?php
-$pie = new \AmCharts\Chart\Pie();
+$pie = new Chart\Pie();
 $pie->setDataProvider(array(
     array(
         'name' => 'Foo',
@@ -65,7 +50,7 @@ $pie->setDataProvider(array(
         'value' => 2
     )
 ));
-$pie->fields()->setTitleField('name')
+$pie->setTitleField('name')
     ->setValueField('value');
 
 echo $pie->render();

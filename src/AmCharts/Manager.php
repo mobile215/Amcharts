@@ -17,7 +17,7 @@ class Manager
     /**
      * @var string
      */
-    protected $amChartsPath = __DIR__ . '/amcharts/amcharts.js';
+    protected $amChartsPath = 'http://www.amcharts.com/lib/amcharts.js';
     
     /**
      * @var string 

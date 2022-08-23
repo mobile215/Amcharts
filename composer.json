@@ -3,7 +3,7 @@
     "type": "library",
     "autoload": {
         "psr-4": {
-            "Amcharts\\": "src/Amcharts/"
+            "AmCharts\\": "src/AmCharts/"
         }
     },
     "description": "PHP5 library to create AmCharts HTML5 charts.",
